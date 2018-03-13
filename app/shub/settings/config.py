@@ -1,8 +1,8 @@
 '''
 
-Copyright (C) 2017 The Board of Trustees of the Leland Stanford Junior
+Copyright (C) 2017-2018 The Board of Trustees of the Leland Stanford Junior
 University.
-Copyright (C) 2017 Vanessa Sochat.
+Copyright (C) 2017-2018 Vanessa Sochat.
 
 This program is free software: you can redistribute it and/or modify it
 under the terms of the GNU Affero General Public License as published by
@@ -18,6 +18,8 @@ You should have received a copy of the GNU Affero General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 '''
+
+# AUTHENTICATION
 
 # Which social auths do you want to use?
 ENABLE_GOOGLE_AUTH=False
@@ -47,13 +49,23 @@ HELP_INSTITUTION_SITE = 'http://www.cesga.es'
 REGISTRY_NAME = "Singularity Registry"
 REGISTRY_URI = "MSO4SC"
 
+
+
+# PERMISSIONS
+
+# Allow users to create public collections
+USER_COLLECTIONS = False
+
 # Should registries by default be private, with no option for public?
 PRIVATE_ONLY = False
 
 # Should the default for a new registry be private or public?
 DEFAULT_PRIVATE = True
 
-# Database
+
+
+# DATABASE
+
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
 DATABASES = {
@@ -66,18 +78,12 @@ DATABASES = {
     }
 }
 
-########################################################################
+
 # Visualizations
-########################################################################
 
 # After how many single containers should we switch to showing collections
 # only? >= 1000
 VISUALIZATION_TREEMAP_COLLECTION_SWITCH=1000
-
-
-########################################################################
-# Logging
-########################################################################
 
 
 # Logging
@@ -89,8 +95,12 @@ LOGGING_SAVE_RESPONSES=True
 # Plugins
 # Add the name of a plugin under shub.plugins here to enable it
 
+
+
 # Available Plugins:
+
 # - ldap_auth: Allows sregistry to authenitcate against an LDAP directory
 PLUGINS_ENABLED = [
-    'ldap_auth'
+    'ldap_auth',
+    'fiware',
 ]
