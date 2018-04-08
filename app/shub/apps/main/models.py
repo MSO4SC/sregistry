@@ -1,8 +1,8 @@
 '''
 
-Copyright (C) 2017 The Board of Trustees of the Leland Stanford Junior
+Copyright (C) 2017-2018 The Board of Trustees of the Leland Stanford Junior
 University.
-Copyright (C) 2017 Vanessa Sochat.
+Copyright (C) 2017-2018 Vanessa Sochat.
 
 This program is free software: you can redistribute it and/or modify it
 under the terms of the GNU Affero General Public License as published by
@@ -75,7 +75,7 @@ def has_edit_permission(instance,request):
         return False
 
     # Global Admins
-    if request.user.admin is True:
+    if request.user.is_staff is True:
         return True
 
     if request.user.is_superuser is True:
@@ -101,7 +101,7 @@ def has_view_permission(instance,request):
         return False
         
     # Global Admins
-    if request.user.admin is True or request.user.is_superuser:
+    if request.user.is_staff is True or request.user.is_superuser:
         return True
 
     # Collection Contributors
